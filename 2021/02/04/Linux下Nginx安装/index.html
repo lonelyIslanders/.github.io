@@ -20,21 +20,19 @@
     var CONFIG = {"hostname":"lonelyislanders.github.io","root":"/.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="welcome!">
+  <meta name="description" content="前言本次安装使用的方式为编译安装 安装Nginx1.进入到对应的安装目录，这里的安装目录按自己需求来，比如我的&#x2F;usr&#x2F;local&#x2F;目录下 1[root@dj~]# cd &#x2F;usr&#x2F;local&#x2F; 2.下载nginx包(有外网的情况下)，具体版本可以去nginx官网下载 1[root@dj local]# wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.19.6.tar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="welcome">
-<meta property="og:url" content="https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/index.html">
+<meta property="og:title" content="Linux下Nginx安装">
+<meta property="og:url" content="https://lonelyislanders.github.io/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="undefined">
-<meta property="og:description" content="welcome!">
+<meta property="og:description" content="前言本次安装使用的方式为编译安装 安装Nginx1.进入到对应的安装目录，这里的安装目录按自己需求来，比如我的&#x2F;usr&#x2F;local&#x2F;目录下 1[root@dj~]# cd &#x2F;usr&#x2F;local&#x2F; 2.下载nginx包(有外网的情况下)，具体版本可以去nginx官网下载 1[root@dj local]# wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.19.6.tar">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://39.99.155.90/img/ykx.jpg">
-<meta property="article:published_time" content="2021-02-01T07:18:38.000Z">
-<meta property="article:modified_time" content="2021-02-02T07:05:20.278Z">
+<meta property="article:published_time" content="2021-02-04T08:44:22.350Z">
+<meta property="article:modified_time" content="2021-02-04T08:44:22.350Z">
 <meta property="article:author" content="牛牛">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://39.99.155.90/img/ykx.jpg">
 
-<link rel="canonical" href="https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/">
+<link rel="canonical" href="https://lonelyislanders.github.io/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/">
 
 
 <script id="page-configurations">
@@ -47,7 +45,7 @@
   };
 </script>
 
-  <title>welcome | undefined</title>
+  <title>Linux下Nginx安装 | undefined</title>
   
 
 
@@ -183,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/">
+    <link itemprop="mainEntityOfPage" href="https://lonelyislanders.github.io/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/.github.io/images/avatar.png">
@@ -196,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          welcome
+          Linux下Nginx安装
         </h1>
 
         <div class="post-meta">
@@ -206,15 +204,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-01 15:18:38" itemprop="dateCreated datePublished" datetime="2021-02-01T15:18:38+08:00">2021-02-01</time>
+              <time title="创建时间：2021-02-04 16:44:22" itemprop="dateCreated datePublished" datetime="2021-02-04T16:44:22+08:00">2021-02-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-02 15:05:20" itemprop="dateModified" datetime="2021-02-02T15:05:20+08:00">2021-02-02</time>
-              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -229,7 +220,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8</span>
+              <span>682</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -248,8 +239,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="http://39.99.155.90/img/ykx.jpg" alt="夜空下" title="夜空下"><br>welcome!</p>
-
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本次安装使用的方式为编译安装</p>
+<h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>1.进入到对应的安装目录，这里的安装目录按自己需求来，比如我的/usr/local/目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root@dj~]#</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span></span><br></pre></td></tr></table></figure>
+<p>2.下载nginx包(有外网的情况下)，具体版本可以去nginx官网<a target="_blank" rel="noopener" href="http://nginx.org/download/">下载</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@dj local]</span># <span class="selector-tag">wget</span> <span class="selector-tag">http</span>://<span class="selector-tag">nginx</span><span class="selector-class">.org</span>/<span class="selector-tag">download</span>/<span class="selector-tag">nginx-1</span>.19.6<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>3.解压缩</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@dj</span> <span class="keyword">local</span>]<span class="meta"># tar -zxvf nginx-1.19.6.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p>4.进入到解压后的目录</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@dj</span> <span class="keyword">local</span>]<span class="meta"># cd /nginx-1.19.6/</span></span><br></pre></td></tr></table></figure>
+<p>5.依次输入以下命令</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># ./configure</span></span><br><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># make</span></span><br><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
+<p>6.编译安装完成后启动nginx</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj nginx-<span class="number">1.19</span>.<span class="number">6</span>]# <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>sbin/nginx</span><br></pre></td></tr></table></figure>
+<p>7.停止nginx服务</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># killall nginx</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑主配置文件"><a href="#编辑主配置文件" class="headerlink" title="编辑主配置文件"></a>编辑主配置文件</h3><p>1.vim 打开配置文件</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>conf/nginx.conf</span><br></pre></td></tr></table></figure>
+<p>2.修改部分</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">listen:		<span class="number">80</span>	<span class="comment">#监听端口，默认值，按需修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">location</span> <span class="title">~ \.php</span>$ &#123;</span><br><span class="line">    proxy_pass   http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8080</span>;</span><br><span class="line">&#125;			<span class="comment">#开启nginx反向解析，php文件将由监听8080端口服务器处理</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -263,11 +272,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/.github.io/2021/02/04/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/.github.io/2021/02/04/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -326,6 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Nginx"><span class="nav-number">1.1.</span> <span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">编辑主配置文件</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

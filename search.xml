@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux下Nginx安装</title>
+    <url>/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本次安装使用的方式为编译安装</p>
+<h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>1.进入到对应的安装目录，这里的安装目录按自己需求来，比如我的/usr/local/目录下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">[root@dj~]#</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/</span></span><br></pre></td></tr></table></figure>
+<p>2.下载nginx包(有外网的情况下)，具体版本可以去nginx官网<a href="http://nginx.org/download/">下载</a></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[root@dj local]</span># <span class="selector-tag">wget</span> <span class="selector-tag">http</span>://<span class="selector-tag">nginx</span><span class="selector-class">.org</span>/<span class="selector-tag">download</span>/<span class="selector-tag">nginx-1</span>.19.6<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>3.解压缩</p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">[root<span class="symbol">@dj</span> <span class="keyword">local</span>]<span class="meta"># tar -zxvf nginx-1.19.6.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p>4.进入到解压后的目录</p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">[root<span class="symbol">@dj</span> <span class="keyword">local</span>]<span class="meta"># cd /nginx-1.19.6/</span></span><br></pre></td></tr></table></figure>
+<p>5.依次输入以下命令</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># ./configure</span></span><br><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># make</span></span><br><span class="line">[root<span class="meta">@dj</span> nginx-1.19.6]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
+<p>6.编译安装完成后启动nginx</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">[root@dj nginx-<span class="number">1.19</span>.<span class="number">6</span>]# <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>sbin/nginx</span><br></pre></td></tr></table></figure>
+<p>7.停止nginx服务</p>
+<figure class="highlight julia"><table><tr><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># killall nginx</span></span><br></pre></td></tr></table></figure>
+<h3 id="编辑主配置文件"><a href="#编辑主配置文件" class="headerlink" title="编辑主配置文件"></a>编辑主配置文件</h3><p>1.vim 打开配置文件</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>conf/nginx.conf</span><br></pre></td></tr></table></figure>
+<p>2.修改部分</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">listen:		<span class="number">80</span>	<span class="comment">#监听端口，默认值，按需修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">location</span> <span class="title">~ \.php</span>$ &#123;</span><br><span class="line">    proxy_pass   http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8080</span>;</span><br><span class="line">&#125;			<span class="comment">#开启nginx反向解析，php文件将由监听8080端口服务器处理</span></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
-    <url>/.github.io/2021/02/01/hello-world/</url>
+    <url>/.github.io/2021/02/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
