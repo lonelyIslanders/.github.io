@@ -3,11 +3,11 @@
   <title>卡卡罗特</title>
   
   <subtitle>人生若只如初见</subtitle>
-  <link href="https://lonelyislanders.github.io/atom.xml" rel="self"/>
+  <link href="https://lonelyislanders.github.io/.github.io/atom.xml" rel="self"/>
   
-  <link href="https://lonelyislanders.github.io/"/>
+  <link href="https://lonelyislanders.github.io/.github.io/"/>
   <updated>2021-02-04T08:44:22.350Z</updated>
-  <id>https://lonelyislanders.github.io/</id>
+  <id>https://lonelyislanders.github.io/.github.io/</id>
   
   <author>
     <name>牛牛</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Linux下Nginx安装</title>
-    <link href="https://lonelyislanders.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/"/>
-    <id>https://lonelyislanders.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/</id>
+    <link href="https://lonelyislanders.github.io/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/"/>
+    <id>https://lonelyislanders.github.io/.github.io/2021/02/04/Linux%E4%B8%8BNginx%E5%AE%89%E8%A3%85/</id>
     <published>2021-02-04T08:44:22.350Z</published>
     <updated>2021-02-04T08:44:22.350Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://lonelyislanders.github.io/2021/02/04/hello-world/"/>
-    <id>https://lonelyislanders.github.io/2021/02/04/hello-world/</id>
+    <link href="https://lonelyislanders.github.io/.github.io/2021/02/04/hello-world/"/>
+    <id>https://lonelyislanders.github.io/.github.io/2021/02/04/hello-world/</id>
     <published>2021-02-04T03:14:23.430Z</published>
     <updated>2021-02-04T03:14:23.430Z</updated>
     
@@ -56,8 +56,8 @@
   
   <entry>
     <title>welcome</title>
-    <link href="https://lonelyislanders.github.io/2021/02/01/welcome/"/>
-    <id>https://lonelyislanders.github.io/2021/02/01/welcome/</id>
+    <link href="https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/"/>
+    <id>https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/</id>
     <published>2021-02-01T07:18:38.000Z</published>
     <updated>2021-02-02T07:05:20.278Z</updated>
     
