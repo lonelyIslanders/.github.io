@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lonelyislanders.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言加密，就是以某种特殊的算法改变原有数据，使未授权用户无法得知原数据内容的方法。本次详解常见的加密方式及其使用，包括单项散列加密、对成加密、非对称加密。 单项散列加密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="加解密详解">
+<meta property="og:url" content="https://lonelyislanders.github.io/.github.io/2021/03/08/011/index.html">
+<meta property="og:site_name" content="卡卡罗特">
+<meta property="og:description" content="前言加密，就是以某种特殊的算法改变原有数据，使未授权用户无法得知原数据内容的方法。本次详解常见的加密方式及其使用，包括单项散列加密、对成加密、非对称加密。 单项散列加密">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-08T07:23:27.747Z">
+<meta property="article:author" content="牛牛">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lonelyislanders.github.io/.github.io/2021/03/08/011/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>加解密详解 | 卡卡罗特</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="卡卡罗特" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡卡罗特</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生若只如初见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources" rel="section"><i class="far fa-angle-double-down fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lonelyislanders.github.io/.github.io/2021/03/08/011/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="牛牛">
+      <meta itemprop="description" content="书写、记录、感悟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卡罗特">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          加解密详解
+        </h1>
+
+        <div class="post-meta">
+
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-08 00:00:00 / 修改时间：15:23:27" itemprop="dateCreated datePublished" datetime="2021-03-08T00:00:00+08:00">2021-03-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/03/08/011/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/08/011/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加密，就是以某种特殊的算法改变原有数据，使未授权用户无法得知原数据内容的方法。<br>本次详解常见的加密方式及其使用，包括单项散列加密、对成加密、非对称加密。</p>
+<h3 id="单项散列加密"><a href="#单项散列加密" class="headerlink" title="单项散列加密"></a>单项散列加密</h3><a id="more"></a>
+<p>1.定义：把任意长度的输入串转换成固定长度的输出串，并且由输出串难以反推输入串的方法。<br>2.常见算法：</p>
+<ul>
+<li>MD5</li>
+<li>SHA</li>
+<li>MAC</li>
+<li>CRC</li>
+</ul>
+<p>3.举例：以MD5为例</p>
+<figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="variable">$str</span>=<span class="string">&quot;hello baby&quot;</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">&quot;加密后：&quot;</span>.md5(<span class="variable">$str</span>);</span></span><br><span class="line"><span class="php"><span class="comment">//结果：加密后：292bf3c832cce2ab5d4f9775596b13bd</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>4.推荐加密方式<br><code>password_hash()</code>使用足够强度的单向散列算法创建密码的散列(hash)。</p>
+<ul>
+<li>PASSWORD_DEFAULT：使用<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30932215/article/details/95050221">bcrypt</a>算法。生成结果长度不固定。</li>
+<li>PASSWORD_BCRYPT：使用CRYPT_BLOWFISH算法创建散列。生成结果固定60个字符的字符串，失败则false。</li>
+</ul>
+<p>5.示例代码</p>
+<figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//PASSWORD_DEFAULT</span></span></span><br><span class="line"><span class="php"><span class="variable">$str</span>=<span class="string">&quot;hello baby&quot;</span>;</span></span><br><span class="line"><span class="php"><span class="variable">$hash</span>=password_hash(<span class="variable">$str</span>,PASSWORD_DEFAULT);</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">&quot;加密前：&quot;</span>.<span class="variable">$str</span>.<span class="string">&quot;&lt;hr/&gt;&quot;</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">&quot;加密后：&quot;</span>.<span class="variable">$hash</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">//PASSWORD_BCRYPT</span></span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">&quot;&lt;hr/&gt;&quot;</span>;</span></span><br><span class="line"><span class="php"><span class="variable">$hash2</span>=password_hash(<span class="variable">$str</span>,PASSWORD_BCRYPT);</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">&quot;加密后：&quot;</span>.<span class="variable">$hash2</span>;</span></span><br><span class="line"><span class="php"><span class="comment">//结果：</span></span></span><br><span class="line"><span class="php"><span class="comment">//加密前：hello baby</span></span></span><br><span class="line"><span class="php"><span class="comment">//加密后：$2y$10$W2qABOON.5YkuGJPYrcnxet8v5Ii3oWfms5O1sunOKpeCeQfNCpKy</span></span></span><br><span class="line"><span class="php"><span class="comment">//加密后：$2y$10$eo1gPc61NLOd4J72RttXa.Ssgq4/6XV1DPcrATxNELZ7jDhA7WZvm</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>1.定义：同一个密钥可以同时用作数据的加密和解密，这种方法称为对称加密。<br>就比如一把钥匙🔑可以上锁和解锁。<br>2.常用算法</p>
+<ul>
+<li>DES</li>
+<li>AES<br>AES可以说是DES的升级版，密钥长度更长，可以设定为32 bite的任意倍数，最小值128 bite，最大值256 bite，暴力破解基本不可能。</li>
+</ul>
+<p>3.缺点<br>发送方和接收方必须商定好密钥，且双方都能保管好密钥，密钥管理成为双方负担。<br>4.示例代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Aes</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * var string $method 加解密方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$method</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * var string $secret_key 加解密的密钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$secret_key</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * var string $iv 加解密的向量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$iv</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * var int $options</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$options</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $key     密钥</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $method  加密方式</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $iv      向量</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int    $options</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$key</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$method</span> = <span class="string">&#x27;AES-128-CBC&#x27;</span>, <span class="variable">$iv</span> = <span class="string">&#x27;&#x27;</span>, <span class="variable">$options</span> = OPENSSL_RAW_DATA</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;secret_key = <span class="keyword">isset</span>(<span class="variable">$key</span>) ? <span class="variable">$key</span> : <span class="string">&#x27;CWq3g0hgl7Ao2OKI&#x27;</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;method = in_array(<span class="variable">$method</span>, openssl_get_cipher_methods()) ? <span class="variable">$method</span> : <span class="string">&#x27;AES-128-CBC&#x27;</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;iv = <span class="variable">$iv</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;options = in_array(<span class="variable">$options</span>, [OPENSSL_RAW_DATA, OPENSSL_ZERO_PADDING]) ? <span class="variable">$options</span> : OPENSSL_RAW_DATA;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加密</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $data 加密的数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">encrypt</span>(<span class="params"><span class="variable">$data</span> = <span class="string">&#x27;&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> base64_encode(openssl_encrypt(<span class="variable">$data</span>, <span class="keyword">$this</span>-&gt;method, <span class="keyword">$this</span>-&gt;secret_key, <span class="keyword">$this</span>-&gt;options, <span class="keyword">$this</span>-&gt;iv));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解密</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $data 解密的数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">decrypt</span>(<span class="params"><span class="variable">$data</span> = <span class="string">&#x27;&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> openssl_decrypt(base64_decode(<span class="variable">$data</span>), <span class="keyword">$this</span>-&gt;method, <span class="keyword">$this</span>-&gt;secret_key, <span class="keyword">$this</span>-&gt;options, <span class="keyword">$this</span>-&gt;iv);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$aes</span> = <span class="keyword">new</span> Aes(<span class="string">&#x27;HFu8Z5SjAT7CudQc&#x27;</span>);</span><br><span class="line"><span class="variable">$encrypted</span> = <span class="variable">$aes</span>-&gt;encrypt(<span class="string">&#x27;美好总是不期而遇&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;加密前：美好总是不期而遇&lt;br&gt;加密后：&#x27;</span>, <span class="variable">$encrypted</span>, <span class="string">&#x27;&lt;hr&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$decrypted</span> = <span class="variable">$aes</span>-&gt;decrypt(<span class="variable">$encrypted</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;加密后：&#x27;</span>, <span class="variable">$encrypted</span>, <span class="string">&#x27;&lt;br&gt;解密后：&#x27;</span>, <span class="variable">$decrypted</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果：</span></span><br><span class="line">加密前：美好总是不期而遇</span><br><span class="line">加密后：FFhUIjC7P8hq2CinNKFkKyiHT/AGj9vXldh0A+GFceg=</span><br><span class="line"></span><br><span class="line">加密后：FFhUIjC7P8hq2CinNKFkKyiHT/AGj9vXldh0A+GFceg=</span><br><span class="line">解密后：美好总是不期而遇</span><br></pre></td></tr></table></figure>
+<h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>1.定义：需要两个密钥进行加解密，分别对应公钥（public key）和私钥（private key），这种方法称为非对称加密。<br>2.常用算法</p>
+<ul>
+<li>RSA</li>
+</ul>
+<p>3.特点<br>优点：与对称加密相比，安全性更好，加解密需要不同的密钥，公钥和私钥都可进行相互的加解密。<br>缺点：加解密耗时长，速度慢，RSA算法的保密强度随其密钥的长度增加而增强，RSA的速度比对应同样安全级别的对称密码算法要慢1000倍左右。<br>公钥和私钥是一对的，可以这么理解，公钥负责加密，加密过后的内容只有拥有私钥的“人”才能看懂。<br>4.示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">略～～</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢您的支持！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="牛牛 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="牛牛 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/04/010/" rel="prev" title="MySQL存储emoji(😍)">
+      <i class="fa fa-chevron-left"></i> MySQL存储emoji(😍)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%A1%B9%E6%95%A3%E5%88%97%E5%8A%A0%E5%AF%86"><span class="nav-number">2.</span> <span class="nav-text">单项散列加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">3.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">4.</span> <span class="nav-text">非对称加密</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="牛牛"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">牛牛</p>
+  <div class="site-description" itemprop="description">书写、记录、感悟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+
+<!--音乐播放器-->
+<div id="music163player">
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2746640773&auto=0&height=66">
+	</iframe>
+</div>
+
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">牛牛</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">18 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '9H7uq3y4cwqJgov1EUnNM8iK-gzGzoHsz',
+      appKey     : 'G7kb6mlxKx2v1ebSgrXcCMmc',
+      placeholder: "say something",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

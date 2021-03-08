@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>晴天</title>
+    <script>
+      window.onload = function () {
+        var audio = document.getElementById('audio')
+        audio.play()
+      }
+
+      var audio = document.getElementById('audio')
+      audio.play()
+    </script>
+    <style>
+      body {
+        background-image: url('images/ykx.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .bg {
+        /* 歌词调整区 */
+        width: 100%; /* 歌词显示盒子宽 */
+        height: 500px; /* 歌词显示盒子高度，需要多显示几行歌词相应调大即可 */
+        /* background-color:#333; */ /* 歌词背景颜色 */
+        margin: 15px auto;
+        color: darkgrey; /* 歌词默认颜色,灰色 */
+        font-size: 15px; /* 歌词字体默认大小 */
+        overflow: hidden;
+        position: relative;
+        font-family: '微软雅黑';
+      }
+      .bg ul {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        list-style: none;
+      }
+      .bg ul li {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+      .bg ul li.active {
+        /* 歌词高亮滚动区 */
+        color: green; /* 歌词滚动高亮颜色 */
+        /* font-weight: bold; */ /* 文本加粗，不要，太丑了！ */
+        font-size: 20px; /* 歌词滚动行文字大小 */
+      }
+      audio {
+        /* 播放器调整区 */
+        width: 100%; /* 调整播放器宽度 */ /* 其他要修改播放器在这里修改 */
+      }
+
+      .bgm {
+        opacity: 0.3; /*透明度*/
+      }
+
+      .news {
+        text-decoration: none;
+      }
+
+      .thanks {
+        text-decoration: none;
+        float: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bgm">
+      <audio autoplay id="audio" src="audio/晴天.mp3" controls></audio>
+    </div>
+    <img src="images/wave.gif" align="right" width="10" height="10" alt="" />
+    <!-- 这里修改播放器播放音乐 -->
+    <!-- 上边的autoplay="autoplay"属性为自动播放，不想让自动播放删去即可 -->
+    <div class="bg"></div>
+    <!-- 歌词显示盒子 -->
+    <script src="js/js.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        function parseLyric(text) {
+          //按行分割歌词
+          let lyricArr = text.split('\n')
+          let result = [] //新建一个数组存放最后结果
+          //遍历分割后的歌词数组，将格式化后的时间节点，歌词填充到result数组
+          for (i = 0; i < lyricArr.length; i++) {
+            let playTimeArr = lyricArr[i].match(
+              /\[\d{2}:\d{2}((\.|\:)\d{2})\]/g
+            ) //正则匹配播放时间
+            let lineLyric = ''
+            if (lyricArr[i].split(playTimeArr).length > 0) {
+              lineLyric = lyricArr[i].split(playTimeArr)
+            }
+
+            if (playTimeArr != null) {
+              for (let j = 0; j < playTimeArr.length; j++) {
+                let time = playTimeArr[j]
+                  .substring(1, playTimeArr[j].indexOf(']'))
+                  .split(':')
+                //数组填充
+                result.push({
+                  time: (parseInt(time[0]) * 60 + parseFloat(time[1])).toFixed(
+                    4
+                  ),
+                  content: String(lineLyric).substr(1),
+                })
+              }
+            }
+          }
+          return result
+        }
+
+        // 这里请按照格式放入相应歌词--开始
+        // 格式可能看着很复杂,其实是根据lrc歌词文件换句前加入\n 换行符,然后删除多余空行.即可!
+        let text =
+          '[00:01.00]BGM：晴天-周杰伦\n[00:02.00]音频来自B站UP主\n[00:03.00] Devil青酱\n[00:21.20]故乡的未名花\n[00:24.92]从记事那年就开着\n[00:28.36]童年的小甜点\n[00:31.90]想起是舌尖甜甜\n[00:35.00]mi so so xi。。。。\n[00:42.00]吹着短笛 嬉戏田地\n[00:45.30]想要让这悠哉日常延续\n[00:48.80]为你逃考的那一天\n[00:50.90]落水的那一天\n[00:52.81]柜子的小隔间\n[00:54.60]你突然就出现\n[00:56.10]转学的那一天\n[00:57.90]我好想再见一面\n[01:02.00]没想到 读过的书签我还留着\n[01:08.03]好想再问一遍\n[01:10.07]能否再次祈祷晴天\n[01:16.91]见面这天 我努力伸出我手\n[01:22.50]但偏偏 你默然\n[01:25.86]只留相思的红线\n[01:30.80]还要多久 你才能飞向蓝天\n[01:37.47]若有坠落的那天\n[01:40.51]我的呼唤你能否听见\n[01:44.80]从前从前 刻骨铭心的爱恋\n[01:50.70]但偏偏 这心愿\n[01:54.02]你身影越追越远\n[01:58.72]好不容易 学会爱你的语言\n[02:05.40]但故事的最后\n[02:08.05]我的心还是化作 碎片\n[02:26.66]与你初遇的那一天\n[02:28.85]听讲的那一天\n[02:30.81]你宛如在眼前\n[02:32.54]我怎么看不见\n[02:34.10]追梦的一天天\n[02:35.90]苦乐都肩并着肩\n[02:40.00]没想到 偏差的记忆我还留着\n[02:46.11]不禁再问一遍\n[02:48.00]你说你是我的天选\n[02:54.80]那个阴天 我曾经握着你手\n[03:00.51]但偏偏 又回旋\n[03:04.03]这次你说未曾见\n[03:08.87]博弈无形 我提防你会占先\n[03:15.20]愿故事的最后\n[03:18.16]我们都皆大欢喜 团圆\n[03:22.65]狂风漫卷 我慌张握着你手\n[03:25.90]但偏偏 你喜欢\n[03:27.45]带着我一飞冲天\n[03:29.51]那个夜晚 你我共望繁星满天\n[03:32.84]我也许下誓言\n[03:34.42]永远守护你的闪光点\n[03:36.90]相伴永远 你和我契约因缘\n[03:40.20]越百年 越千年\n[03:41.78]你还会回到身边\n[03:43.58]你曾问我 晴天为何总短暂\n[03:46.98]在最后 我知道\n[03:48.00]有你在天天是晴天\n[03:50.00]爱你❤~\n[10:10.10]'
+        // 这里请按照格式放入相应歌词--结束
+        let audio = document.querySelector('audio')
+
+        let result = parseLyric(text) //执行lyc解析
+
+        // 把生成的数据显示到界面上去
+        let $ul = $('<ul></ul>')
+        for (let i = 0; i < result.length; i++) {
+          let $li = $('<li></li>').text(result[i].content)
+          $ul.append($li)
+        }
+        $('.bg').append($ul)
+
+        let lineNo = 0 // 当前行歌词
+        let preLine = 8 // 当播放8行后开始滚动歌词
+        let lineHeight = -30 // 每次滚动的距离
+
+        // 滚动播放 歌词高亮  增加类名active
+        function highLight() {
+          let $li = $('li')
+          $li.eq(lineNo).addClass('active').siblings().removeClass('active')
+          if (lineNo > preLine) {
+            $ul
+              .stop(true, true)
+              .animate({ top: (lineNo - preLine) * lineHeight })
+          }
+        }
+
+        highLight()
+
+        // 播放的时候不断渲染
+        audio.addEventListener('timeupdate', function () {
+          if (lineNo == result.length) return
+          if ($('li').eq(0).hasClass('active')) {
+            $('ul').css('top', '0')
+          }
+          lineNo = getLineNo(audio.currentTime)
+          highLight()
+          lineNo++
+        })
+
+        // 当快进或者倒退的时候，找到最近的后面那个result[i].time
+        function getLineNo(currentTime) {
+          if (currentTime >= parseFloat(result[lineNo].time)) {
+            // 快进
+            for (let i = result.length - 1; i >= lineNo; i--) {
+              if (currentTime >= parseFloat(result[i].time)) {
+                return i
+              }
+            }
+          } else {
+            // 后退
+            for (let i = 0; i <= lineNo; i++) {
+              if (currentTime <= parseFloat(result[i].time)) {
+                return i - 1
+              }
+            }
+          }
+        }
+
+        //播放结束自动回到开头
+        audio.addEventListener('ended', function () {
+          lineNo = 0
+          highLight()
+          audio.play()
+          $('ul').css('top', '0')
+        })
+      })
+    </script>
+  </body>
+</html>
