@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lonelyislanders.github.io","root":"/.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言Squid是一种高性能的代理服务器，用来缓存Internet数据的软件。言简意赅的说就是Squid作为中间人(小三)，当你连接到Squid并且访问谷歌的时候，Squid连接远程的谷歌服务器并发出请求获得Google.com这个页面，再然后返回给你自己，同时Squid还会复制一份这个页面，当下一次有客户机请求的时候相同页面的时候，Squid可以立即从磁盘中读取并传输给客户机，起到了缓存加速的作用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Squid代理">
+<meta property="og:url" content="https://lonelyislanders.github.io/.github.io/2021/03/18/013/index.html">
+<meta property="og:site_name" content="卡卡罗特">
+<meta property="og:description" content="前言Squid是一种高性能的代理服务器，用来缓存Internet数据的软件。言简意赅的说就是Squid作为中间人(小三)，当你连接到Squid并且访问谷歌的时候，Squid连接远程的谷歌服务器并发出请求获得Google.com这个页面，再然后返回给你自己，同时Squid还会复制一份这个页面，当下一次有客户机请求的时候相同页面的时候，Squid可以立即从磁盘中读取并传输给客户机，起到了缓存加速的作用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yourk.top/images/Squid_Mac.png">
+<meta property="article:published_time" content="2021-03-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-18T09:00:39.402Z">
+<meta property="article:author" content="牛牛">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yourk.top/images/Squid_Mac.png">
+
+<link rel="canonical" href="https://lonelyislanders.github.io/.github.io/2021/03/18/013/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Squid代理 | 卡卡罗特</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/.github.io/atom.xml" title="卡卡罗特" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡卡罗特</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生若只如初见</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/.github.io/resources" rel="section"><i class="fas fa-angle-double-down fa-fw"></i>资源</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/.github.io/music" rel="section"><i class="fas fa-headphones-alt fa-fw"></i>音乐</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lonelyislanders.github.io/.github.io/2021/03/18/013/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/.github.io/images/avatar.jpg">
+      <meta itemprop="name" content="牛牛">
+      <meta itemprop="description" content="书写、记录、感悟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卡罗特">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Squid代理
+        </h1>
+
+        <div class="post-meta">
+
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-18 00:00:00 / 修改时间：17:00:39" itemprop="dateCreated datePublished" datetime="2021-03-18T00:00:00+08:00">2021-03-18</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/.github.io/2021/03/18/013/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/.github.io/2021/03/18/013/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Squid是一种高性能的代理服务器，用来缓存Internet数据的软件。<br>言简意赅的说就是Squid作为中间人(小三)，当你连接到Squid并且访问谷歌的时候，Squid连接远程的谷歌服务器并发出请求获得Google.com这个页面，再然后返回给你自己，同时Squid还会复制一份这个页面，当下一次有客户机请求的时候相同页面的时候，Squid可以立即从磁盘中读取并传输给客户机，起到了缓存加速的作用。</p>
+<a id="more"></a>
+
+<h3 id="安装Squid"><a href="#安装Squid" class="headerlink" title="安装Squid"></a>安装Squid</h3><p>1.CentOS安装</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> ~]<span class="comment"># yum install squid.x86_64 -y</span></span><br></pre></td></tr></table></figure>
+<p>2.启动并添加至开机自启</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span> ~]<span class="comment"># systemctl start squid.service</span></span><br><span class="line">[root<span class="variable">@dj</span> ~]<span class="comment"># systemctl enable squid.service</span></span><br></pre></td></tr></table></figure>
+<p>3.Squid默认端口号3128，拒绝所有连接请求，所以我们还要修改配置文件</p>
+<h3 id="Squid-conf"><a href="#Squid-conf" class="headerlink" title="Squid.conf"></a>Squid.conf</h3><p>1.打开配置文件</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> ~]<span class="comment"># vim /etc/squid/squid.conf</span></span><br></pre></td></tr></table></figure>
+<p>2.修改默认端口号3128为4678，可以根据自己需求修改1024～65535范围端口</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#代码片段，将3128修改为4678</span></span><br><span class="line"><span class="meta"># Squid normally listens to port 3128</span></span><br><span class="line">http_port <span class="number">3128</span></span><br></pre></td></tr></table></figure>
+<p>3.为Squid添加身份验证，需已安装Apache<br>吐槽一句，百度真滴辣鸡，教程一个一个抄，都是一个模子的。完全找不到正确教程。亿气之下，在谷歌上终于找到了比较详细的讲解，先给地址🔗贴出来👉<a target="_blank" rel="noopener" href="https://maoxian.de/2016/06/1415.html">点我</a></p>
+<p>3.1 生成<code>squid_passwd</code>密码文件，用户名uname，此处uname可自行修改</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> ~]<span class="comment"># htpasswd -c /etc/squid/squid_passwd uname</span></span><br></pre></td></tr></table></figure>
+<p>3.2 修改<code>squid_passwd</code>文件的所有者为squid</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span> ~]<span class="comment"># chown squid /etc/squid/squid_passwd</span></span><br></pre></td></tr></table></figure>
+<p>3.3 编辑squid.conf，找到<code>http_access deny all</code>，在其上方添加如下几句</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">auth_param basic program <span class="regexp">/usr/</span>lib64<span class="regexp">/squid/</span>basic_ncsa_auth <span class="regexp">/etc/</span>squid/squid_passwd</span><br><span class="line">auth_param basic children <span class="number">5</span></span><br><span class="line">auth_param basic realm Squid proxy-caching web server</span><br><span class="line">auth_param basic credentialsttl <span class="number">2</span> hours</span><br><span class="line">auth_param basic casesensitive off</span><br><span class="line">acl ncsa_users proxy_auth REQUIRED</span><br><span class="line">http_access allow ncsa_users</span><br></pre></td></tr></table></figure>
+<p>第1行：指定密码文件和用来验证密码的程序<br>第2行：鉴权进程的数量<br>第3行：用户输入用户名密码时看到的提示信息<br>第4行：用户名和密码的缓存时间<br>第5行：用户名是否需要匹配大小写<br>第6行：所有成功鉴权的用户都归于<code>ncsa_users</code>组<br>第7行：允许<code>ncsa_users</code>组的用户使用<code>Proxy</code><br>3.4 保存退出，重新启squid</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span> ~]<span class="comment"># systemctl restart squid.service</span></span><br></pre></td></tr></table></figure>
+<h3 id="高匿设置"><a href="#高匿设置" class="headerlink" title="高匿设置"></a>高匿设置</h3><p>1.还是在<code>http_access deny all</code>上面添加如下语句</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">forwarded_for</span> <span class="literal">off</span></span><br><span class="line"><span class="attribute">request_header_access</span> <span class="literal">Allow</span> <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Authorization <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> WWW-Authenticate <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Proxy-Authorization <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Proxy-Authenticate <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Cache-Control <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Content-Encoding <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Content-Length <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Content-Type <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Date <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Expires <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Host <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> If-Modified-Since <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Last-Modified <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Location <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Pragma <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Accept <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Accept-Charset <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Accept-Encoding <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Accept-Language <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Content-Language <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Mime-Version <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Retry-After <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Title <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Connection <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Proxy-Connection <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> User-Agent <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> Cookie <span class="literal">allow</span> <span class="literal">all</span></span><br><span class="line"><span class="attribute">request_header_access</span> <span class="literal">All</span> <span class="literal">deny</span> <span class="literal">all</span></span><br></pre></td></tr></table></figure>
+<p>2.默认情况下，squid错误则会显示我们的主机信息，我们改一下，还是继续添加</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">visible_hostname CanYouStillLoveMe?</span><br><span class="line">httpd_suppress_version_string <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>1.例如Mac端打开代理，可填写服务端IP或者域名。<br><img src="https://yourk.top/images/Squid_Mac.png" alt="Mac"><br>2.此时，您的IP已经变成服务器端的IP啦</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢您的支持！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/.github.io/images/wechatpay.png" alt="牛牛 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/.github.io/images/alipay.png" alt="牛牛 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/.github.io/2021/03/15/012/" rel="prev" title="简述API">
+      <i class="fa fa-chevron-left"></i> 简述API
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Squid"><span class="nav-number">2.</span> <span class="nav-text">安装Squid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Squid-conf"><span class="nav-number">3.</span> <span class="nav-text">Squid.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%8C%BF%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">高匿设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="牛牛"
+      src="/.github.io/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">牛牛</p>
+  <div class="site-description" itemprop="description">书写、记录、感悟</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/.github.io/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+
+<!--音乐播放器-->
+<div id="music163player">
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2746640773&auto=0&height=66">
+	</iframe>
+</div>
+
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">牛牛</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">26k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">23 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/.github.io/lib/anime.min.js"></script>
+  <script src="/.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/.github.io/js/utils.js"></script>
+
+<script src="/.github.io/js/motion.js"></script>
+
+
+<script src="/.github.io/js/schemes/pisces.js"></script>
+
+
+<script src="/.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/.github.io/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '9H7uq3y4cwqJgov1EUnNM8iK-gzGzoHsz',
+      appKey     : 'G7kb6mlxKx2v1ebSgrXcCMmc',
+      placeholder: "say something",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
