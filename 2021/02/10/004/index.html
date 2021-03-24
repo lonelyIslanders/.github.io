@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/.github.io/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/.github.io/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/.github.io/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/.github.io/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/.github.io/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lonelyislanders","root":"/.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yourk.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前言LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。 MySQL安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LAMP环境搭建">
-<meta property="og:url" content="https://lonelyislanders/.github.io/2021/02/10/004/index.html">
+<meta property="og:url" content="https://yourk.top/2021/02/10/004/index.html">
 <meta property="og:site_name" content="卡卡罗特">
 <meta property="og:description" content="前言LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。 MySQL安装">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lonelyislanders/.github.io/2021/02/10/004/">
+<link rel="canonical" href="https://yourk.top/2021/02/10/004/">
 
 
 <script id="page-configurations">
@@ -77,7 +77,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/.github.io/atom.xml" title="卡卡罗特" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="卡卡罗特" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -96,7 +96,7 @@
 
   <div class="site-meta">
 
-    <a href="/.github.io/" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">卡卡罗特</h1>
       <span class="logo-line-after"><i></i></span>
@@ -118,22 +118,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-resources">
 
-    <a href="/.github.io/resources" rel="section"><i class="fas fa-angle-double-down fa-fw"></i>资源</a>
+    <a href="/resources" rel="section"><i class="fas fa-angle-double-down fa-fw"></i>资源</a>
 
   </li>
         <li class="menu-item menu-item-music">
 
-    <a href="/.github.io/music" rel="section"><i class="fas fa-headphones-alt fa-fw"></i>音乐</a>
+    <a href="/music" rel="section"><i class="fas fa-headphones-alt fa-fw"></i>音乐</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -192,10 +192,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lonelyislanders/.github.io/2021/02/10/004/">
+    <link itemprop="mainEntityOfPage" href="https://yourk.top/2021/02/10/004/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/.github.io/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="牛牛">
       <meta itemprop="description" content="书写、记录、感悟">
     </span>
@@ -236,8 +236,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/.github.io/2021/02/10/004/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/.github.io/2021/02/10/004/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/10/004/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/10/004/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -266,7 +266,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。</p>
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/.github.io/assets/css/APlayer.min.css"><script src="/.github.io/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/.github.io/assets/js/Meting.min.js"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。</p>
 <h3 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h3><a id="more"></a>
 <p>tips：这里Apache和MySQL推荐先安装，因为PHP与MySQL需要进行关联<br>1.执行安装命令</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># yum install mysql-server -y</span></span><br></pre></td></tr></table></figure>
@@ -332,12 +332,12 @@
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/.github.io/images/wechatpay.png" alt="牛牛 微信支付">
+        <img src="/images/wechatpay.png" alt="牛牛 微信支付">
         <p>微信支付</p>
       </div>
       
       <div style="display: inline-block;">
-        <img src="/.github.io/images/alipay.png" alt="牛牛 支付宝">
+        <img src="/images/alipay.png" alt="牛牛 支付宝">
         <p>支付宝</p>
       </div>
 
@@ -353,11 +353,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/.github.io/2021/02/04/003/" rel="prev" title="Linux下Nginx安装">
+    <a href="/2021/02/04/003/" rel="prev" title="Linux下Nginx安装">
       <i class="fa fa-chevron-left"></i> Linux下Nginx安装
     </a></div>
       <div class="post-nav-item">
-    <a href="/.github.io/2021/02/19/005/" rel="next" title="简单的注册登录示例">
+    <a href="/2021/02/19/005/" rel="next" title="简单的注册登录示例">
       简单的注册登录示例 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -426,14 +426,14 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="牛牛"
-      src="/.github.io/images/avatar.jpg">
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">牛牛</p>
   <div class="site-description" itemprop="description">书写、记录、感悟</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/.github.io/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
@@ -529,30 +529,30 @@
   </div>
 
   
-  <script src="/.github.io/lib/anime.min.js"></script>
-  <script src="/.github.io/lib/velocity/velocity.min.js"></script>
-  <script src="/.github.io/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/.github.io/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/.github.io/js/motion.js"></script>
-
-
-<script src="/.github.io/js/schemes/pisces.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/.github.io/js/next-boot.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
-
-
-  
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
-<script src="/.github.io/js/local-search.js"></script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
