@@ -273,7 +273,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面的LAMP环境搭建完成后，接下来，展示如何写一个简单的注册登录的例子。<br>思路分析：<br>1.首先register.html作为注册页面，负责收录填写的注册信息。<br>2.register.php作为验证注册页面，负责验证用户注册信息是否符合要求。<br>3.login.html作为登录页面，用于填写用户登录的信息。<br>4.login.php作为验证登录页面，负责验证用户登录信息是否正确。<br>5.新建<code>users</code>数据库，其下<code>user_info</code>数据表用于存储用户信息。<br>6.由于这只是个简单的例子，注册成功或登录成功跳转的页面没有写防止URL直接访问，后续将更新❤️<br>7.废话不多说，开整。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面的LAMP环境搭建完成后，接下来，展示如何写一个简单的注册登录的例子。<br>思路分析：<br>1.首先register.html作为注册页面，负责收录填写的注册信息。<br>2.register.php作为验证注册页面，负责验证用户注册信息是否符合要求。<br>3.login.html作为登录页面，用于填写用户登录的信息。<br>4.login.php作为验证登录页面，负责验证用户登录信息是否正确。<br>5.新建<code>users</code>数据库，其下<code>user_info</code>数据表用于存储用户信息。<br>6.由于这只是个简单的例子，注册成功或登录成功跳转的页面没有写防止URL直接访问，后续将更新❤️<br>7.废话不多说，开整。</p>
 <a id="more"></a>
 <h2 id="新建数据库、表"><a href="#新建数据库、表" class="headerlink" title="新建数据库、表"></a>新建数据库、表</h2><p>1.新建数据库</p>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">create</span> <span class="keyword">database</span> users;</span><br><span class="line">#提示：Query OK, 1 row affected (0.00 sec)</span><br></pre></td></tr></table></figure>
