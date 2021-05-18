@@ -3,11 +3,11 @@
   <title>卡卡罗特</title>
   
   <subtitle>人生若只如初见</subtitle>
-  <link href="https://lonelyislanders.github.io/.github.io/atom.xml" rel="self"/>
+  <link href="https://github.com/pengjuandu/blog.git/atom.xml" rel="self"/>
   
-  <link href="https://lonelyislanders.github.io/.github.io/"/>
+  <link href="https://github.com/pengjuandu/blog.git/"/>
   <updated>2021-05-13T07:43:35.093Z</updated>
-  <id>https://lonelyislanders.github.io/.github.io/</id>
+  <id>https://github.com/pengjuandu/blog.git/</id>
   
   <author>
     <name>牛牛</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Squid+Stunnel氪薛商魍</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/04/17/014/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/04/17/014/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/04/17/014/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/04/17/014/</id>
     <published>2021-04-16T16:00:00.000Z</published>
     <updated>2021-05-13T07:43:35.093Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>Squid代理</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/18/013/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/18/013/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/18/013/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/18/013/</id>
     <published>2021-03-17T16:00:00.000Z</published>
     <updated>2021-03-18T09:00:39.402Z</updated>
     
@@ -52,8 +52,8 @@
   
   <entry>
     <title>简述API</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/15/012/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/15/012/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/15/012/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/15/012/</id>
     <published>2021-03-14T16:00:00.000Z</published>
     <updated>2021-03-17T02:48:44.589Z</updated>
     
@@ -69,8 +69,8 @@
   
   <entry>
     <title>加解密详解</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/08/011/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/08/011/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/08/011/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/08/011/</id>
     <published>2021-03-07T16:00:00.000Z</published>
     <updated>2021-03-08T07:23:27.747Z</updated>
     
@@ -87,8 +87,8 @@
   
   <entry>
     <title>MySQL存储emoji(😍)</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/04/010/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/04/010/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/04/010/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/04/010/</id>
     <published>2021-03-03T16:00:00.000Z</published>
     <updated>2021-03-05T09:43:45.044Z</updated>
     
@@ -104,8 +104,8 @@
   
   <entry>
     <title>表白时刻(🙂)</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/04/009/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/04/009/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/04/009/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/04/009/</id>
     <published>2021-03-03T16:00:00.000Z</published>
     <updated>2021-03-04T09:26:16.672Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>查询IP及地理位置</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/03/008/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/03/008/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/03/008/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/03/008/</id>
     <published>2021-03-02T16:00:00.000Z</published>
     <updated>2021-03-03T03:44:33.886Z</updated>
     
@@ -142,8 +142,8 @@
   
   <entry>
     <title>防绕过登陆(session)</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/03/02/007/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/03/02/007/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/03/02/007/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/03/02/007/</id>
     <published>2021-03-01T16:00:00.000Z</published>
     <updated>2021-03-02T08:41:26.201Z</updated>
     
@@ -160,8 +160,8 @@
   
   <entry>
     <title>防绕过登陆(cookie)</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/20/006/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/20/006/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/20/006/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/20/006/</id>
     <published>2021-02-19T16:00:00.000Z</published>
     <updated>2021-03-02T10:22:41.531Z</updated>
     
@@ -178,8 +178,8 @@
   
   <entry>
     <title>简单的注册登录示例</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/19/005/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/19/005/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/19/005/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/19/005/</id>
     <published>2021-02-18T16:00:00.000Z</published>
     <updated>2021-03-02T04:13:24.826Z</updated>
     
@@ -194,27 +194,9 @@
   </entry>
   
   <entry>
-    <title>LAMP环境搭建</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/05/004/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/05/004/</id>
-    <published>2021-02-04T16:00:00.000Z</published>
-    <updated>2021-05-18T02:46:11.518Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。</p><h3 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h3><a id="more"></a><p>tips：这里Apache和MySQL推荐先安装，因为PHP与MySQL需要进行关联<br>1.执行安装命令</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># yum install mysql-server -y</span></span><br></pre></td></tr></table></figure><p>2.启动MySQL服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start mysqld.service</span></span><br></pre></td></tr></table></figure><p>3.把MySQL添加到开机启动项</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable mysqld</span></span><br></pre></td></tr></table></figure><p>4.查看MySQL初始登录密码</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# <span class="keyword">cat</span> /<span class="keyword">var</span>/<span class="keyword">log</span>/mysqld.<span class="keyword">log</span> | grep <span class="string">&quot;generated for root@localhost&quot;</span></span><br><span class="line">或者</span><br><span class="line">[root@dj~]# <span class="keyword">cat</span> /<span class="keyword">var</span>/<span class="keyword">log</span>/mysqld/mysqld.<span class="keyword">log</span> | grep <span class="string">&quot;generated for root@localhost&quot;</span></span><br></pre></td></tr></table></figure><p>5.有初始密码的提示如下<br>其中******即你的密码</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# A <span class="keyword">temporary</span> <span class="keyword">password</span> <span class="keyword">is</span> <span class="keyword">generated</span> <span class="keyword">for</span> root@localhost: ******</span><br></pre></td></tr></table></figure><p>6.登录MySQL</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># mysql -uroot -p******</span></span><br></pre></td></tr></table></figure><p>以上方式存在泄漏密码的风险，推荐输入-p后直接回车，再次输入密码。此处密码不会显示。<br>7.登录MySQL修改初始密码</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;  <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;你想要的密码&#x27;</span>;</span><br></pre></td></tr></table></figure><p>8.退出MySQL</p><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">quit</span></span><br></pre></td></tr></table></figure><h3 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h3><p>1.yum源安装</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install httpd -y</span></span><br></pre></td></tr></table></figure><p>2.启动httpd服务(Apache进程服务名叫httpd)</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start httpd.service</span></span><br></pre></td></tr></table></figure><p>3.加入到开机项</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable httpd</span></span><br></pre></td></tr></table></figure><p>4.修改Apache配置文件</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/etc/</span>httpd<span class="regexp">/conf/</span>httpd.conf</span><br></pre></td></tr></table></figure><p>5.找到 Options Indexes FollowSymLinks，把Indexes删掉，作用是禁止查看站点目录结构。<br>6.找到Listen 80，修改为Listen 8080(修改监听端口为8080，笔者这里的80端口给Nginx使用了，所以，不需要的可以忽略这一步)<br>7.找到DirectoryIndex index.html，在后面加上index.php。这样Apache才能识别php文件。<br>8.保存退出，重启httpd服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl restart httpd.service</span></span><br></pre></td></tr></table></figure><h3 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h3><p>tips：此处安装的版本为php7版本<br>1.安装gcc编译器</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum -y install gcc gcc-c++</span></span><br></pre></td></tr></table></figure><p>2.安装EPEL源</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span><span class="operator">~</span>]# yum install epel<span class="operator">-</span><span class="keyword">release</span> <span class="operator">-</span>y</span><br><span class="line">[root<span class="variable">@dj</span><span class="operator">~</span>]# yum install http:<span class="operator">/</span><span class="operator">/</span>rpms.remirepo.net<span class="operator">/</span>enterprise<span class="operator">/</span>remi<span class="operator">-</span><span class="keyword">release</span><span class="number">-7.</span>rpm <span class="comment">--skip-broken</span></span><br></pre></td></tr></table></figure><p>3.安装yum源管理工具</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install yum-utils -y</span></span><br></pre></td></tr></table></figure><p>4.安装php及其模块</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install php* -y</span></span><br></pre></td></tr></table></figure><p>5.启动php服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start php-fpm.service</span></span><br></pre></td></tr></table></figure><p>6.设置开机自启</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable php-fpm.service</span></span><br></pre></td></tr></table></figure><p>7.测试</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/var/</span>www<span class="regexp">/html/</span>test.php</span><br></pre></td></tr></table></figure><p>8.输入以下内容，保存退出</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>9.在浏览器地址栏输入localhost/test.php。或者”你的ip/test.php”，显示PHP信息则安装成功。<br>(第4步非常有必要，不然用于json的处理方法json_decode()和json_encode()会无效，都是坑啊)</p><h3 id="测试PHP连接MySQL"><a href="#测试PHP连接MySQL" class="headerlink" title="测试PHP连接MySQL"></a>测试PHP连接MySQL</h3><p>1.登录MySQL创建一个数据库，注意分号不能丢</p><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">create</span> <span class="keyword">database</span> testDB;</span><br></pre></td></tr></table></figure><p>2.退出MySQL，输入</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/var/</span>www<span class="regexp">/html/</span>php.php</span><br></pre></td></tr></table></figure><p>3.输入以下内容，保存退出</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$connect</span>=mysqli_connect(<span class="string">&quot;localhost&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;你的mysql密码&quot;</span>,<span class="string">&quot;testDB&quot;</span>);</span><br><span class="line">mysqli_set_charset(<span class="variable">$connect</span>,<span class="string">&quot;UTF-8&quot;</span>);        </span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$connect</span>)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;ok&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>4.浏览器地址栏输入localhost/php.php，或者”你的ip/php.php”<br>输出OK则表示链接成功，否则失败</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。&lt;/p&gt;
-&lt;h3 id=&quot;MySQL安装&quot;&gt;&lt;a href=&quot;#MySQL安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL安装&quot;&gt;&lt;/a&gt;MySQL安装&lt;/h3&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Linux下Nginx安装</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/05/003/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/05/003/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/05/003/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/05/003/</id>
     <published>2021-02-04T16:00:00.000Z</published>
     <updated>2021-04-12T08:23:13.643Z</updated>
     
@@ -233,9 +215,27 @@
   </entry>
   
   <entry>
+    <title>LAMP环境搭建</title>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/05/004/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/05/004/</id>
+    <published>2021-02-04T16:00:00.000Z</published>
+    <updated>2021-05-18T02:46:11.518Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。</p><h3 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h3><a id="more"></a><p>tips：这里Apache和MySQL推荐先安装，因为PHP与MySQL需要进行关联<br>1.执行安装命令</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># yum install mysql-server -y</span></span><br></pre></td></tr></table></figure><p>2.启动MySQL服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start mysqld.service</span></span><br></pre></td></tr></table></figure><p>3.把MySQL添加到开机启动项</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable mysqld</span></span><br></pre></td></tr></table></figure><p>4.查看MySQL初始登录密码</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# <span class="keyword">cat</span> /<span class="keyword">var</span>/<span class="keyword">log</span>/mysqld.<span class="keyword">log</span> | grep <span class="string">&quot;generated for root@localhost&quot;</span></span><br><span class="line">或者</span><br><span class="line">[root@dj~]# <span class="keyword">cat</span> /<span class="keyword">var</span>/<span class="keyword">log</span>/mysqld/mysqld.<span class="keyword">log</span> | grep <span class="string">&quot;generated for root@localhost&quot;</span></span><br></pre></td></tr></table></figure><p>5.有初始密码的提示如下<br>其中******即你的密码</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# A <span class="keyword">temporary</span> <span class="keyword">password</span> <span class="keyword">is</span> <span class="keyword">generated</span> <span class="keyword">for</span> root@localhost: ******</span><br></pre></td></tr></table></figure><p>6.登录MySQL</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># mysql -uroot -p******</span></span><br></pre></td></tr></table></figure><p>以上方式存在泄漏密码的风险，推荐输入-p后直接回车，再次输入密码。此处密码不会显示。<br>7.登录MySQL修改初始密码</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;  <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;你想要的密码&#x27;</span>;</span><br></pre></td></tr></table></figure><p>8.退出MySQL</p><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">quit</span></span><br></pre></td></tr></table></figure><h3 id="Apache安装"><a href="#Apache安装" class="headerlink" title="Apache安装"></a>Apache安装</h3><p>1.yum源安装</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install httpd -y</span></span><br></pre></td></tr></table></figure><p>2.启动httpd服务(Apache进程服务名叫httpd)</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start httpd.service</span></span><br></pre></td></tr></table></figure><p>3.加入到开机项</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable httpd</span></span><br></pre></td></tr></table></figure><p>4.修改Apache配置文件</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/etc/</span>httpd<span class="regexp">/conf/</span>httpd.conf</span><br></pre></td></tr></table></figure><p>5.找到 Options Indexes FollowSymLinks，把Indexes删掉，作用是禁止查看站点目录结构。<br>6.找到Listen 80，修改为Listen 8080(修改监听端口为8080，笔者这里的80端口给Nginx使用了，所以，不需要的可以忽略这一步)<br>7.找到DirectoryIndex index.html，在后面加上index.php。这样Apache才能识别php文件。<br>8.保存退出，重启httpd服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl restart httpd.service</span></span><br></pre></td></tr></table></figure><h3 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h3><p>tips：此处安装的版本为php7版本<br>1.安装gcc编译器</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum -y install gcc gcc-c++</span></span><br></pre></td></tr></table></figure><p>2.安装EPEL源</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span><span class="operator">~</span>]# yum install epel<span class="operator">-</span><span class="keyword">release</span> <span class="operator">-</span>y</span><br><span class="line">[root<span class="variable">@dj</span><span class="operator">~</span>]# yum install http:<span class="operator">/</span><span class="operator">/</span>rpms.remirepo.net<span class="operator">/</span>enterprise<span class="operator">/</span>remi<span class="operator">-</span><span class="keyword">release</span><span class="number">-7.</span>rpm <span class="comment">--skip-broken</span></span><br></pre></td></tr></table></figure><p>3.安装yum源管理工具</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install yum-utils -y</span></span><br></pre></td></tr></table></figure><p>4.安装php及其模块</p><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># yum install php* -y</span></span><br></pre></td></tr></table></figure><p>5.启动php服务</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start php-fpm.service</span></span><br></pre></td></tr></table></figure><p>6.设置开机自启</p><figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># systemctl enable php-fpm.service</span></span><br></pre></td></tr></table></figure><p>7.测试</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/var/</span>www<span class="regexp">/html/</span>test.php</span><br></pre></td></tr></table></figure><p>8.输入以下内容，保存退出</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>9.在浏览器地址栏输入localhost/test.php。或者”你的ip/test.php”，显示PHP信息则安装成功。<br>(第4步非常有必要，不然用于json的处理方法json_decode()和json_encode()会无效，都是坑啊)</p><h3 id="测试PHP连接MySQL"><a href="#测试PHP连接MySQL" class="headerlink" title="测试PHP连接MySQL"></a>测试PHP连接MySQL</h3><p>1.登录MySQL创建一个数据库，注意分号不能丢</p><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">create</span> <span class="keyword">database</span> testDB;</span><br></pre></td></tr></table></figure><p>2.退出MySQL，输入</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@dj~]# vim <span class="regexp">/var/</span>www<span class="regexp">/html/</span>php.php</span><br></pre></td></tr></table></figure><p>3.输入以下内容，保存退出</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$connect</span>=mysqli_connect(<span class="string">&quot;localhost&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;你的mysql密码&quot;</span>,<span class="string">&quot;testDB&quot;</span>);</span><br><span class="line">mysqli_set_charset(<span class="variable">$connect</span>,<span class="string">&quot;UTF-8&quot;</span>);        </span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$connect</span>)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;ok&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>4.浏览器地址栏输入localhost/php.php，或者”你的ip/php.php”<br>输出OK则表示链接成功，否则失败</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;LAMP即Linux、Apache、MySQL、PHP的简称，是一种常见的web服务环境。Linux用作后端操作系统(OS)；Apache是Web服务器；MySQL是数据库；PHP是脚本语言。下面将展示如何搭建这套环境。&lt;/p&gt;
+&lt;h3 id=&quot;MySQL安装&quot;&gt;&lt;a href=&quot;#MySQL安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL安装&quot;&gt;&lt;/a&gt;MySQL安装&lt;/h3&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/04/hello-world/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/04/hello-world/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/04/hello-world/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/04/hello-world/</id>
     <published>2021-02-04T03:14:23.430Z</published>
     <updated>2021-02-04T03:14:23.430Z</updated>
     
@@ -251,8 +251,8 @@
   
   <entry>
     <title>welcome</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/01/welcome/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/01/welcome/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/01/welcome/</id>
     <published>2021-02-01T07:18:38.000Z</published>
     <updated>2021-02-05T11:52:14.005Z</updated>
     
@@ -271,8 +271,8 @@
   
   <entry>
     <title>Tips</title>
-    <link href="https://lonelyislanders.github.io/.github.io/2021/02/01/Tips/"/>
-    <id>https://lonelyislanders.github.io/.github.io/2021/02/01/Tips/</id>
+    <link href="https://github.com/pengjuandu/blog.git/2021/02/01/Tips/"/>
+    <id>https://github.com/pengjuandu/blog.git/2021/02/01/Tips/</id>
     <published>2021-01-31T16:00:00.000Z</published>
     <updated>2021-04-18T07:01:34.571Z</updated>
     
@@ -287,7 +287,7 @@
     
     
     
-    <category term="hexo" scheme="https://lonelyislanders.github.io/.github.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://github.com/pengjuandu/blog.git/tags/hexo/"/>
     
   </entry>
   
