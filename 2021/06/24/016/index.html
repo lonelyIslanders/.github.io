@@ -20,22 +20,20 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="welcome!">
+  <meta name="description" content="前言1.本例需要准备一个有效域名2.使用Postfix、Dovecot搭建一个简单的邮件服务器，更多功能仍需探索 Postfix、Dovecot简介1.Postfix 是一个标准的 MTA「Mail Transfer Agent」服务器，它负责通过 SMTP 协议管理发送到本机的邮件以及由本机发向外界的邮件.2.Dovecot 是一个优秀的 IMAP&#x2F;POP 服务器用以接收外界发送到本机的邮件。3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="welcome">
-<meta property="og:url" content="https://github.com/pengjuand/blog.git/2021/02/01/welcome/index.html">
+<meta property="og:title" content="搭建邮件服务器">
+<meta property="og:url" content="https://github.com/pengjuand/blog.git/2021/06/24/016/index.html">
 <meta property="og:site_name" content="卡卡罗特">
-<meta property="og:description" content="welcome!">
+<meta property="og:description" content="前言1.本例需要准备一个有效域名2.使用Postfix、Dovecot搭建一个简单的邮件服务器，更多功能仍需探索 Postfix、Dovecot简介1.Postfix 是一个标准的 MTA「Mail Transfer Agent」服务器，它负责通过 SMTP 协议管理发送到本机的邮件以及由本机发向外界的邮件.2.Dovecot 是一个优秀的 IMAP&#x2F;POP 服务器用以接收外界发送到本机的邮件。3">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yourk.top/images/ykx.jpg">
-<meta property="article:published_time" content="2021-02-01T07:18:38.000Z">
-<meta property="article:modified_time" content="2021-02-05T11:52:14.005Z">
+<meta property="article:published_time" content="2021-06-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-20T02:32:33.398Z">
 <meta property="article:author" content="牛牛">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yourk.top/images/ykx.jpg">
 
-<link rel="canonical" href="https://github.com/pengjuand/blog.git/2021/02/01/welcome/">
+<link rel="canonical" href="https://github.com/pengjuand/blog.git/2021/06/24/016/">
 
 
 <script id="page-configurations">
@@ -48,7 +46,7 @@
   };
 </script>
 
-  <title>welcome | 卡卡罗特</title>
+  <title>搭建邮件服务器 | 卡卡罗特</title>
   
 
 
@@ -199,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/pengjuand/blog.git/2021/02/01/welcome/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/pengjuand/blog.git/2021/06/24/016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          welcome
+          搭建邮件服务器
         </h1>
 
         <div class="post-meta">
@@ -224,14 +222,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-01 15:18:38" itemprop="dateCreated datePublished" datetime="2021-02-01T15:18:38+08:00">2021-02-01</time>
+              <time title="创建时间：2021-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-24T00:00:00+08:00">2021-06-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-05 19:52:14" itemprop="dateModified" datetime="2021-02-05T19:52:14+08:00">2021-02-05</time>
+                <time title="修改时间：2021-07-20 10:32:33" itemprop="dateModified" datetime="2021-07-20T10:32:33+08:00">2021-07-20</time>
               </span>
 
           
@@ -250,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/01/welcome/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/01/welcome/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/24/016/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/24/016/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -261,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -280,8 +278,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://yourk.top/images/ykx.jpg" alt="夜空下"><br>welcome!</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>1.本例需要准备一个有效域名<br>2.使用Postfix、Dovecot搭建一个简单的邮件服务器，更多功能仍需探索</p>
+<h3 id="Postfix、Dovecot简介"><a href="#Postfix、Dovecot简介" class="headerlink" title="Postfix、Dovecot简介"></a>Postfix、Dovecot简介</h3><p>1.Postfix 是一个标准的 MTA「Mail Transfer Agent」服务器，它负责通过 SMTP 协议管理发送到本机的邮件以及由本机发向外界的邮件.<br>2.Dovecot 是一个优秀的 IMAP/POP 服务器用以接收外界发送到本机的邮件。<br>3.完</p>
+<a id="more"></a>
 
+<h3 id="安装Postfix、Dovecot"><a href="#安装Postfix、Dovecot" class="headerlink" title="安装Postfix、Dovecot"></a>安装Postfix、Dovecot</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># yum install postfix dovecot -y</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置Postfix"><a href="#配置Postfix" class="headerlink" title="配置Postfix"></a>配置Postfix</h3><p>1.将<code>yourdomain.com</code>替换成你的域名</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">postconf -e <span class="symbol">&#x27;myhostname</span> = server.yourdomain.com&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;mydestination</span> = localhost, localhost.localdomain&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;myorigin</span> = $mydomain&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;mynetworks</span> = <span class="number">127.0</span>.<span class="number">0.0</span>/<span class="number">8</span>&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;inet_interfaces</span> = <span class="keyword">all</span>&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;inet_protocols</span> = <span class="keyword">all</span>&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;mydestination</span> = $myhostname, localhost.$mydomain, localhost, $mydomain&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;home_mailbox</span> = Maildir/&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_sasl_type</span> = dovecot&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_sasl_path</span> = <span class="keyword">private</span>/auth&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_sasl_auth_enable</span> = yes&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;broken_sasl_auth_clients</span> = yes&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_sasl_authenticated_header</span> = yes&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_recipient_restrictions</span> = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_use_tls</span> = yes&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_tls_cert_file</span> = /etc/pki/dovecot/certs/dovecot.pem&#x27;</span><br><span class="line">postconf -e <span class="symbol">&#x27;smtpd_tls_key_file</span> = /etc/pki/dovecot/<span class="keyword">private</span>/dovecot.pem&#x27;</span><br></pre></td></tr></table></figure>
+<p>2.打开并修改Postfix配置文件</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># vim /etc/postfix/master.cf</span></span><br></pre></td></tr></table></figure>
+<p>3.找到以下两行，删除前面的<code>#</code>，注意<code>-o</code>前面保持空格，保存退出</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#smtps     inet  n       -       n       -       -       smtpd</span></span><br><span class="line"><span class="meta">#  -o smtpd_tls_wrappermode=yes</span></span><br></pre></td></tr></table></figure>
+<p>4.启动Postfix并加入开机启动</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>]<span class="comment"># systemctl start  postfix.service</span></span><br><span class="line">[root<span class="meta">@dj</span>]<span class="comment"># systemctl enable postfix.service</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Dovecot"><a href="#配置Dovecot" class="headerlink" title="配置Dovecot"></a>配置Dovecot</h3><p>1.修改配置文件，在最下方加入以下内容</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># vim /etc/dovecot/dovecot.conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ssl_cert</span> = &lt;/etc/pki/dovecot/certs/dovecot.pem</span><br><span class="line"><span class="attr">ssl_key</span> = &lt;/etc/pki/dovecot/private/dovecot.pem</span><br><span class="line"></span><br><span class="line"><span class="attr">protocols</span> = imap pop3 lmtp</span><br><span class="line"><span class="attr">listen</span> = *</span><br><span class="line"><span class="attr">mail_location</span> = Maildir:~/Maildir</span><br><span class="line"><span class="attr">disable_plaintext_auth</span> = <span class="literal">no</span></span><br></pre></td></tr></table></figure>
+<p>2.修改10-master.conf，修改<code>service auth</code>部分，去除以下<code>#</code>，保存退出</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#unix_listener /var/spool/postfix/private/auth &#123;  </span></span><br><span class="line"><span class="meta">#       mode = 0666  </span></span><br><span class="line"><span class="meta">#&#125;</span></span><br></pre></td></tr></table></figure>
+<p>3.启动Devocot并加入开机启动</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl start dovecot.service</span></span><br><span class="line">[root<span class="variable">@dj</span>~]<span class="comment"># systemctl enable dovecot.service</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试发送"><a href="#测试发送" class="headerlink" title="测试发送"></a>测试发送</h3><p>1.创建用户test</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># useradd test</span></span><br></pre></td></tr></table></figure>
+<p>2.修改密码</p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@dj</span>~]<span class="comment"># passwd test</span></span><br></pre></td></tr></table></figure>
+<p>3.使用<code>Mail</code>命令发送</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;Mail Content&quot;</span> | mail -s <span class="string">&quot;Mail Subject&quot;</span> xxxx@xxx.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -316,13 +339,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/01/Tips/" rel="prev" title="Tips">
-      <i class="fa fa-chevron-left"></i> Tips
+    <a href="/2021/06/01/015/" rel="prev" title="图形验证码">
+      <i class="fa fa-chevron-left"></i> 图形验证码
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/04/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -382,6 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Postfix%E3%80%81Dovecot%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">Postfix、Dovecot简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Postfix%E3%80%81Dovecot"><span class="nav-number">3.</span> <span class="nav-text">安装Postfix、Dovecot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPostfix"><span class="nav-number">4.</span> <span class="nav-text">配置Postfix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEDovecot"><span class="nav-number">5.</span> <span class="nav-text">配置Dovecot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81"><span class="nav-number">6.</span> <span class="nav-text">测试发送</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
